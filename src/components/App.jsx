@@ -20,8 +20,10 @@ export const App = () => {
       </ul>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dogs" element={<Dogs />} />
-        <Route path="/dogs/:dogId" element={<Products />} />
+        {/* <Route path="/dogs" element={<Dogs />} /> */}
+        <Route path="/dogs" element={<div>Коллекция</div>} />
+        <Route path="/dogs/:dogId" element={<div>Элемент коллекции</div>} />
+        <Route path="/products" element={<Products />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
