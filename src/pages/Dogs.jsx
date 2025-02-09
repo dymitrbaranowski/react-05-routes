@@ -1,8 +1,19 @@
+import { Link } from 'react-router-dom';
+
 const Dogs = () => {
+  // useEffect(() => {
+  //HTTP запрос, если нужно
+  // }, []);
+
   return (
     <div>
-      <h1>Dogs</h1>
-      <p>This is the Dogs page.</p>
+      {['dog-1', 'dog-2', 'dog-3', 'dog-4', 'dog-5'].map(dog => {
+        return (
+          <Link key={dog} to={`${dog}`}>
+            {dog}
+          </Link>
+        );
+      })}
     </div>
   );
 };
