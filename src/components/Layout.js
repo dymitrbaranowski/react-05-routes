@@ -1,4 +1,13 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledLink = styled(NavLink)`
+  color: #212121;
+
+  &.active {
+    color: orangered;
+  }
+`;
 
 export const Layout = () => {
   return (
@@ -6,20 +15,20 @@ export const Layout = () => {
       <header>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <StyledLink to="/">Home</StyledLink>
           </li>
           <li>
-            <NavLink to="/dogs">Dogs</NavLink>
+            <StyledLink to="/dogs">Dogs</StyledLink>
           </li>
           <li>
-            <NavLink to="/products">Products</NavLink>
+            <StyledLink to="/products">Products</StyledLink>
           </li>
         </ul>
       </header>
       <main>
         <Outlet />
       </main>
-      <footer>Footer</footer>
+      {/* <footer>Footer</footer> */}
     </div>
   );
 };
