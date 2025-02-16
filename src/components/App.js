@@ -1,12 +1,24 @@
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home';
-import Dogs from '../pages/Dogs';
-import Products from '../pages/Products';
-import NotFound from '../pages/NotFound';
-import DogDetails from 'pages/DogDetails';
 import { Layout } from './Layout';
-import { Gallery } from './Gallery';
-import { Subbreads } from './Subbreads';
+// import { Gallery } from './Gallery';
+// import { Subbreads } from './Subbreads';
+
+const Home = lazy(() => import('../pages/Home'));
+const Dogs = lazy(() => import('../pages/Dogs'));
+const DogDetails = lazy(() => import('../pages/DogDetails'));
+const Gallery = lazy(() =>
+  import('./Gallery').then(module => ({
+    ...module,
+    default: module.Gallery,
+  }))
+);
+const Subbreads = lazy(() =>
+  import('./Subbreads').then(module => ({
+    ...module,
+    default: module.Subbreads,
+  }))
+);
 
 export const App = () => {
   return (
@@ -18,8 +30,6 @@ export const App = () => {
           <Route path="subbreads" element={<Subbreads />} />
           <Route path="gallery" element={<Gallery />} />
         </Route>
-
-        <Route path="products" element={<Products />} />
       </Route>
     </Routes>
   );
