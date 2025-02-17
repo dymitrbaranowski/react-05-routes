@@ -3,13 +3,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 const Dogs = () => {
-  const [dogs, setDogs] = useState([
-    'dog-1',
-    'dog-2',
-    'dog-3',
-    'dog-4',
-    'dog-5',
-  ]);
+  const [dogs] = useState(['dog-1', 'dog-2', 'dog-3', 'dog-4', 'dog-5']);
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const dogId = searchParams.get('dogId') ?? '';
